@@ -16,6 +16,7 @@ exports.create = (req, res) => {
   const bookings = {
     car: req.body.car,
     pickLocation: req.body.pickLocation,
+    dropLocation: req.body.dropLocation,
     pickDate: req.body.pickDate,
     pickTime: req.body.pickTime,
     dropDate: req.body.dropDate,

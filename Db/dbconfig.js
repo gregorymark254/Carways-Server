@@ -1,8 +1,9 @@
 module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "mypassword",
-  DB: "carways",
+  DBHOST: process.env.DBHOST,
+  DBUSER: process.env.DBUSER,
+  DBPORT : process.env.DBPORT,
+  PASSWORD: process.env.PASSWORD,
+  DATABASE : process.env.DATABASE,
   dialect: "mysql",
   pool: {
     max: 5,

@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken')
 
 //Register new user
 router.post("/register", async (req,res) => {
-    const { firstname, lastname, email, phone, password } = req.body;
-    if (!firstname || !lastname || !email || !phone || !password) return res.status(400).json({ 'message': 'Username and password are required.' });
+    const { firstName, lastName, email, phone, password } = req.body;
+    if (!firstName || !lastName || !email || !phone || !password) return res.status(400).json({ 'message': 'Username and password are required.' });
 
     // check for duplicate usernames in the db
-    const duplicate = await User.findOne({ firstname: email }).exec();
+    const duplicate = await User.findOne({ firstName: email }).exec();
     if (duplicate) return res.sendStatus(409); //Conflict 
 
     try {
@@ -18,8 +18,8 @@ router.post("/register", async (req,res) => {
 
         //create and store the new user
         const result = await User.create({
-            "firstname": firstname,
-            "lastname": lastname,
+            "firstName": firstName,
+            "lastName": lastName,
             "email": email,
             "phone": phone,
             "password": hashedPwd

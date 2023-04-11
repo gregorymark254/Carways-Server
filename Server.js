@@ -8,17 +8,21 @@ const auth = require("./Routes/auth")
 const billing = require("./Routes/bills")
 const booking = require("./Routes/books")
 const payment = require("./Routes/pays")
-
+const {logger } = require("./Middleware/logEvents")
+const errorHandler = require("./Middleware/errorHandler")
 
 //connection to mongodb
 mongoconnect()
 const db = require("./Models/index");
 db.sequelize.sync();
 
+
+
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 app.use(cors(corsOption))
+app.use(logger)
 
 
 //routes
@@ -31,6 +35,8 @@ app.use("/api/v3", booking) //booking route
 // app.use("/api/v4", payment) //payment route
 
 
+//Error handler
+app.use(errorHandler)
 
 //Connetion to the server
 const PORT = process.env.PORT 
