@@ -32,42 +32,51 @@ router.post("/register", async (req,res) => {
 
 
 //Login user
-router.post("/login", async (req,res) =>{
-    const { email, password } = req.body;
-    if ( !email || !password) return res.status(400).json({ 'message': 'Username and password are required.' });
-
-    const foundUser = await User.findOne({ email: email }).exec();
-    if (!foundUser) return res.sendStatus(401); //Unauthorized 
-    // evaluate password 
-    const match = await bcrypt.compare(password, foundUser.password);
-    if (match) {
+router.post("/login", async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      if (!email || !password)
+        return res.status(400).json({ message: "Username and password are required." });
+  
+      const foundUser = await User.findOne({ email: email }).exec();
+      if (!foundUser)
+        return res.status(401).json({ message: "Invalid email or password." });
+  
+      // evaluate password
+      const match = await bcrypt.compare(password, foundUser.password);
+      if (match) {
         const roles = Object.values(foundUser.roles).filter(Boolean);
         // create JWTs
         const accessToken = jwt.sign(
-            {
-                "UserInfo": {
-                    "username": foundUser.email,
-                    "roles": roles
-                }
-            },          
-            process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: '10s' }
+          {
+            UserInfo: {
+              username: foundUser.email,
+              roles: roles,
+            },
+          },
+          process.env.ACCESS_TOKEN_SECRET,
+          { expiresIn: "1h" } // increase expiration time
         );
         const newRefreshToken = jwt.sign(
-            { "email": foundUser.email },
-            process.env.REFRESH_TOKEN_SECRET,
-            { expiresIn: '15s' }
-        );   
+          { email: foundUser.email },
+          process.env.REFRESH_TOKEN_SECRET,
+          { expiresIn: "24h" } // increase expiration time
+        );
         // Saving refreshToken with current user
-        const result = await foundUser.save();
-
+        foundUser.refreshToken = newRefreshToken;
+        await foundUser.save();
+  
         // Send authorization roles and access token to user
-        res.json({email, accessToken });
-
-    } else {
-        res.sendStatus(401);
+        res.json({ email, accessToken });
+      } else {
+        return res.status(401).json({ message: "Invalid email or password." });
+      }
+    } catch (error) {
+      console.error(error);
+      res.sendStatus(500);
     }
-})
+});
+  
 
 
 

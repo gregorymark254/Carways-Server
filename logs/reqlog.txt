@@ -69,3 +69,5 @@
 20230411	18:59:25	bc7a4de6-01a6-4ffb-be32-2db284bdbedf	GET	http://localhost:3000	/api/v2/all
 20230411	18:59:25	e64af7f4-fa6b-4057-a9b8-1e1780dd7b35	GET	http://localhost:3000	/api/v3/all
 20230411	18:59:25	a2773d72-4b1b-455b-80f4-edf6cc370eed	GET	http://localhost:3000	/api/v2/all
+20230411	19:42:56	92071667-8e90-4937-bff4-97fb6b922143	POST	https://carways.vercel.app	/api/v2/add
+20230412	00:08:28	7b36f580-d9cb-41ba-a9f5-026b57492dda	POST	http://localhost:3000	/api/v1/login
