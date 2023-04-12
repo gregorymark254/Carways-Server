@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1", auth) //auth route
 app.use("/api/v2", billing) //billing route
 app.use("/api/v3", booking) //booking route
-// app.use("/api/v4", payment) //payment route
+app.use("/api/v4", payment) //payment route
 
 
 //Error handler

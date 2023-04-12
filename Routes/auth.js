@@ -13,20 +13,20 @@ router.post("/register", async (req,res) => {
     if (duplicate) return res.sendStatus(409); //Conflict 
 
     try {
-        //encrypt the password
-        const hashedPwd = await bcrypt.hash(password, 10);
+      //encrypt the password
+      const hashedPwd = await bcrypt.hash(password, 10);
 
-        //create and store the new user
-        const result = await User.create({
-            "firstName": firstName,
-            "lastName": lastName,
-            "email": email,
-            "phone": phone,
-            "password": hashedPwd
-        });
-        res.status(201).json({ 'success': `New user ${email} created!` });
+      //create and store the new user
+      const result = await User.create({
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": email,
+        "phone": phone,
+        "password": hashedPwd
+      });
+      res.status(201).json({ 'success': `New user ${email} created!` });
     } catch (err) {
-        res.status(500).json({ 'message': err.message });
+      res.status(500).json({ 'message': err.message });
     }
 })
 
