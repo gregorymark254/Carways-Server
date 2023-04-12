@@ -6,11 +6,7 @@ router.post('/send-email', (req, res) => {
     const { name, email, subject, message } = req.body;
 
     const transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-        user: 'your-gmail-username',
-        pass: 'your-gmail-password',
-        },
+        service: 'Gmail'
     });
 
     const mailOptions = {
