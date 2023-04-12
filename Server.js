@@ -7,15 +7,14 @@ const mongoconnect = require("./Db/MongoDb")
 const auth = require("./Routes/auth")
 const billing = require("./Routes/bills")
 const booking = require("./Routes/books")
-const payment = require("./Routes/pays")
+const email = require("./Routes/mail")
 const {logger } = require("./Middleware/logEvents")
 const errorHandler = require("./Middleware/errorHandler")
 
-//connection to mongodb
+//connection to Databases
 mongoconnect()
 const db = require("./Models/index");
 db.sequelize.sync();
-
 
 
 //middleware
@@ -32,11 +31,12 @@ app.get("/", (req, res) => {
 app.use("/api/v1", auth) //auth route
 app.use("/api/v2", billing) //billing route
 app.use("/api/v3", booking) //booking route
-app.use("/api/v4", payment) //payment route
+app.use("/api/v4", email) //Email route
 
 
 //Error handler
 app.use(errorHandler)
+
 
 //Connetion to the server
 const PORT = process.env.PORT 

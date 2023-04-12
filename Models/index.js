@@ -20,7 +20,5 @@ db.sequelize = sequelize;
 
 db.bookingInfo = require("./booking")(sequelize, Sequelize);
 db.billingInfo = require("./billing")(sequelize, Sequelize);
-// db.paymentInfo = require("./payment")(sequelize, Sequelize);
-
 
 module.exports = db;
