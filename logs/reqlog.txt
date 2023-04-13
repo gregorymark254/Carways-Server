@@ -71,3 +71,15 @@
 20230411	18:59:25	a2773d72-4b1b-455b-80f4-edf6cc370eed	GET	http://localhost:3000	/api/v2/all
 20230411	19:42:56	92071667-8e90-4937-bff4-97fb6b922143	POST	https://carways.vercel.app	/api/v2/add
 20230412	00:08:28	7b36f580-d9cb-41ba-a9f5-026b57492dda	POST	http://localhost:3000	/api/v1/login
+20230413	14:57:17	7f0b12c2-2e82-4970-900d-5bb3b3e13f6d	POST	undefined	/api/v4/cars
+20230413	14:57:39	d9413ab9-eb4f-48e7-8fc6-fc23f3cc0964	POST	undefined	/api/v5/cars
+20230413	15:02:00	0f8d8bf4-abef-48bb-90db-a7c4c1de8fb3	POST	undefined	/api/v5/cars
+20230413	15:03:27	232ef1f1-a5b1-49e4-8755-1927a8e31307	POST	undefined	/api/v5/cars
+20230413	15:24:55	2404fe0a-8dcc-42cf-ad81-957f7c1965d7	POST	undefined	/api/v5/cars
+20230413	15:25:54	33a2112b-d79a-4f49-a88c-a8bd83d28988	POST	undefined	/api/v5/cars
+20230413	15:26:30	af839a45-376f-441d-a205-64a51ffaab63	POST	undefined	/api/v5/cars
+20230413	15:30:14	e0b7d6a7-6a36-4bfb-b1f9-d9e491d8253b	GET	undefined	/api/v5/all
+20230413	15:31:05	fd92a508-b01e-4c1a-ad0a-16d17be370e4	GET	undefined	/api/v5/all/6437ef8f9a9d4f4a8b0d72a0
+20230413	15:31:30	ef64670b-386f-4e50-8cf5-8e177b577869	DELETE	undefined	/api/v5/all/6437ef8f9a9d4f4a8b0d72a0
+20230413	15:31:44	af4a614d-9520-4f80-a9c1-4161a41be5f4	DELETE	undefined	/api/v5/delete/6437ef8f9a9d4f4a8b0d72a0
+20230413	15:36:57	11867cd6-1098-4990-966f-3a2c5c10e0ab	GET	undefined	/api/v5/all
