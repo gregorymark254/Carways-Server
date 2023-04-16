@@ -67,7 +67,7 @@ router.post("/login", async (req, res) => {
       await foundUser.save();
 
       // Send authorization roles and access token to user
-      res.json({ email, accessToken });
+      res.json({ email,roles, accessToken });
     } else {
       return res.status(401).json({ message: "Invalid email or password." });
     }
