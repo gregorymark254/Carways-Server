@@ -62,6 +62,8 @@ module.exports = (sequelize, Sequelize) => {
     }
   });
   
+  Billing.hasMany(Payment);
+  Payment.belongsTo(Billing);
   return Billing,Payment;
 };
       

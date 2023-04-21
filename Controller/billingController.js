@@ -7,7 +7,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
   // Create a Billing
   const { billingData,paymentData } = req.body
-  
+
   // Validate request
   if (!billingData,paymentData) {
     res.status(400).send({
