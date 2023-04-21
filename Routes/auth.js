@@ -49,9 +49,9 @@ router.post("/login", async (req, res) => {
       // create JWTs
       const accessToken = jwt.sign(
         {
-          UserInfo: {
-            username: foundUser.email,
-            roles: roles,
+          "UserInfo": {
+            "username": foundUser.email,
+            "roles": roles,
           },
         },
         process.env.ACCESS_TOKEN_SECRET,
@@ -64,7 +64,12 @@ router.post("/login", async (req, res) => {
       );
       // Saving refreshToken with current user
       foundUser.refreshToken = newRefreshToken;
-      await foundUser.save();
+      try {
+        await foundUser.save();
+      } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Server error." });
+      }
 
       // Send authorization roles and access token to user
       res.json({ email,roles, accessToken });
