@@ -1,11 +1,12 @@
 const db = require("../Models/index");
 const Billing = db.billingInfo;
+const Payment = db.billingInfo;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Billing
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.firstName) {
+  if (!billingData,paymentData) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -13,33 +14,27 @@ exports.create = (req, res) => {
   }
 
   // Create a Billing
-  const billings = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    phone: req.body.phone,
-    address: req.body.address,
-    address2: req.body.address2,
-    city: req.body.city,
-    state: req.body.state,
-    zip: req.body.zip,
-    cardName: req.body.cardName,
-    cardNumber: req.body.cardNumber,
-    expiryDate: req.body.expiryDate,
-    cvv: req.body.cvv,
-    additionalNote: req.body.additionalNote
-  };
+  const { billingData,paymentData } = req.body
 
   // Save payment in the database
-  Billing.create(billings)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message : err.message || "Some error occurred while creating the Billing."
-      });
+  Billing.create(billingData)
+  .then(data => {
+    res.send(data);
+  })
+  .catch(err => {
+    res.status(500).send({
+      message : err.message || "Some error occurred while creating the Billing."
     });
+  });
+  Payment.create(paymentData)
+  .then(data => {
+    res.send(data);
+  })
+  .catch(err => {
+    res.status(500).send({
+      message : err.message || "Some error occurred while creating the Billing."
+    });
+  });
 };
 
 // Retrieve all Billing from the database.

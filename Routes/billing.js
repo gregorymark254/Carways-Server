@@ -1,4 +1,4 @@
-const bill = require("../Controller/bill");
+const bill = require("../Controller/billingController");
 
 var router = require("express").Router();
 
