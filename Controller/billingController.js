@@ -5,6 +5,9 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Billing
 exports.create = (req, res) => {
+  // Create a Billing
+  const { billingData,paymentData } = req.body
+  
   // Validate request
   if (!billingData,paymentData) {
     res.status(400).send({
@@ -12,9 +15,6 @@ exports.create = (req, res) => {
     });
     return;
   }
-
-  // Create a Billing
-  const { billingData,paymentData } = req.body
 
   // Save payment in the database
   Billing.create(billingData)
