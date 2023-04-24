@@ -45,14 +45,12 @@ router.post("/login", async (req, res) => {
     // evaluate password
     const match = await bcrypt.compare(password, foundUser.password);
     if (match) {
-      const roles = Object.values(foundUser.roles).filter(Boolean);
+      const isAdmin = foundUser.isAdmin
       // create JWTs
       const accessToken = jwt.sign(
         {
-          "UserInfo": {
-            "username": foundUser.email,
-            "roles": roles,
-          },
+          username: foundUser.email,
+          isAdmin: foundUser.isAdmin,
         },
         process.env.ACCESS_TOKEN_SECRET,
         { expiresIn: "1h" } // increase expiration time
@@ -72,7 +70,7 @@ router.post("/login", async (req, res) => {
       }
 
       // Send authorization roles and access token to user
-      res.json({ email,roles, accessToken });
+      res.json({ email,isAdmin, accessToken });
     } else {
       return res.status(401).json({ message: "Invalid email or password." });
     }
