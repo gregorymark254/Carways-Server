@@ -53,7 +53,7 @@ router.get('/all/:id', (req, res) =>{
   Cars.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found car with id " + id });
+        res.status(404).send({ message: "No found car with id " + id });
       else res.send(data);
     })
     .catch(err => {
