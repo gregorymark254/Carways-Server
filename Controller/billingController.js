@@ -27,15 +27,15 @@ exports.create = (req, res) => {
     });
   });
   
-  Payment.create(paymentData)
-  .then(data => {
-    res.send(data);
-  })
-  .catch(err => {
-    res.status(500).send({
-      message : err.message || "Some error occurred while creating the Billing."
-    });
-  });
+  // Payment.create(paymentData)
+  // .then(data => {
+  //   res.send(data);
+  // })
+  // .catch(err => {
+  //   res.status(500).send({
+  //     message : err.message || "Some error occurred while creating the Billing."
+  //   });
+  // });
 };
 
 // Retrieve all Billing from the database.
