@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const Billing = sequelize.define("billing", {
+  const Billing = sequelize.define("billings", {
     firstName: {
       type: Sequelize.STRING
     },
@@ -46,9 +46,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     }
   });
-  
-  Billing.hasMany(Payment);
-  Payment.belongsTo(Billing);
+
   return Billing,Payment;
 };
       
