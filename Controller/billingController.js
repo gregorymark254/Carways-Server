@@ -9,9 +9,9 @@ exports.create = (req, res) => {
   const { billingData,paymentData } = req.body
 
   // Validate request
-  if (!billingData,paymentData) {
+  if (!billingData || !paymentData) {
     res.status(400).send({
-      message: "Content can not be empty!"
+      message: "Billing and Payment data cannot be empty!"
     });
     return;
   }
