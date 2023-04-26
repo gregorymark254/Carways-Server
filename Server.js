@@ -5,7 +5,7 @@ const cors = require("cors")
 const corsOption = require("./Db/corsOption")
 const mongoconnect = require("./Db/MongoDb")
 const auth = require("./Routes/auth")
-const {billing} = require("./Routes/billing")
+const billing = require("./Routes/billing")
 const booking = require("./Routes/booking")
 const email = require("./Routes/mail")
 const cars = require("./Routes/cars")
@@ -19,8 +19,8 @@ db.sequelize.sync();
 
 
 //middleware
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
 app.use(cors(corsOption))
 app.use(logger)
 
