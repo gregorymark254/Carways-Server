@@ -39,7 +39,7 @@ exports.create = (req, res) => {
 };
 
 // Retrieve all Billing from the database.
-exports.findAlls = (req, res) => {
+exports.findAll = (req, res) => {
   const firstName = req.query.firstName;
   var condition = firstName ? { firstName: { [Op.like]: `%${firstName}%` } } : null;
 
