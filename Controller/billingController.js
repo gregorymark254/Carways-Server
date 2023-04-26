@@ -1,6 +1,6 @@
 const db = require("../Models/index");
 const Billing = db.billingInfo;
-const Payment = db.paymentInfo;
+const Payment = db.billingInfo;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Billing
