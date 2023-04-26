@@ -19,8 +19,8 @@ db.sequelize.sync();
 
 
 //middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use(cors(corsOption))
 app.use(logger)
 
