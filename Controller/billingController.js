@@ -1,6 +1,5 @@
 const db = require("../Models/index");
 const Billing = db.billingInfo;
-const Payment = db.paymentInfo;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Billing
@@ -17,7 +16,7 @@ exports.create = (req, res) => {
   }
 
   // Save payment in the database
-  Billing.create(billingData)
+  Billing.create(billingData,paymentData)
   .then(data => {
     res.send(data);
   })
@@ -26,15 +25,16 @@ exports.create = (req, res) => {
       message : err.message || "Some error occurred while creating the Billing."
     });
   });
-  Payment.create(paymentData)
-  .then(data => {
-    res.send(data);
-  })
-  .catch(err => {
-    res.status(500).send({
-      message : err.message || "Some error occurred while creating the Billing."
-    });
-  });
+
+  // Payment.create(paymentData)
+  // .then(data => {
+  //   res.send(data);
+  // })
+  // .catch(err => {
+  //   res.status(500).send({
+  //     message : err.message || "Some error occurred while creating the Billing."
+  //   });
+  // });
 };
 
 // Retrieve all Billing from the database.
