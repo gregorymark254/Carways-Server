@@ -47,6 +47,6 @@ module.exports = (sequelize, Sequelize) => {
     }
   });
 
-  return Billing,Payment;
+  return {Billing,Payment};
 };
       
