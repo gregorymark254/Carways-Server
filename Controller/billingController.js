@@ -26,7 +26,6 @@ exports.create = (req, res) => {
       message : err.message || "Some error occurred while creating the Billing."
     });
   });
-  
   Payment.create(paymentData)
   .then(data => {
     res.send(data);
@@ -39,7 +38,7 @@ exports.create = (req, res) => {
 };
 
 // Retrieve all Billing from the database.
-exports.findAll = (req, res) => {
+exports.findAlls = (req, res) => {
   const firstName = req.query.firstName;
   var condition = firstName ? { firstName: { [Op.like]: `%${firstName}%` } } : null;
 
