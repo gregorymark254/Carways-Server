@@ -26,21 +26,6 @@ module.exports = (sequelize, Sequelize) => {
     },
     zip: {
       type: Sequelize.STRING
-    },
-    cardName: {
-      type: Sequelize.STRING
-    },
-    cardNumber: {
-      type: Sequelize.STRING
-    },
-    expiryDate: {
-      type: Sequelize.STRING
-    },
-    cvv: {
-      type: Sequelize.STRING
-    },
-    additionalNote: {
-      type: Sequelize.STRING
     }
   });
 
