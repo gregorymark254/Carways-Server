@@ -16,7 +16,7 @@ exports.create = (req, res) => {
   }
 
   // Save payment in the database
-  Billing.create(billingData,paymentData)
+  Billing.create(billingData)
   .then(data => {
     res.send(data);
   })
@@ -25,16 +25,16 @@ exports.create = (req, res) => {
       message : err.message || "Some error occurred while creating the Billing."
     });
   });
-
-  // Payment.create(paymentData)
-  // .then(data => {
-  //   res.send(data);
-  // })
-  // .catch(err => {
-  //   res.status(500).send({
-  //     message : err.message || "Some error occurred while creating the Billing."
-  //   });
-  // });
+  
+  Billing.create(paymentData)
+  .then(data => {
+    res.send(data);
+  })
+  .catch(err => {
+    res.status(500).send({
+      message : err.message || "Some error occurred while creating the Billing."
+    });
+  });
 };
 
 // Retrieve all Billing from the database.
