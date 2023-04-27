@@ -26,7 +26,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     zip: {
       type: Sequelize.STRING
-    }
+    },
     cardName: {
       type: Sequelize.STRING
     },
