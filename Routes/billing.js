@@ -20,17 +20,17 @@ router.post("/add", async (req,res) => {
 
     try {
         // Save payment in the database
-        // const billing = await Billing.build(billingData)
-        // billingData.billingId = billing.id
-        // billing.save()
-        // .then(data => {
-        //     console.log("New billing record created successfully:", data);
-        // })
-        // .catch(error => {
-        //     console.error("Error while creating new billing record:", error);
-        // });
-        const payment = await Payment.create(paymentData);
-        res.json({ billing, address });
+        const {billing} = await Billing.create(billingData)
+        billingData.billingId = billing.id
+        billing.save()
+        .then(data => {
+            console.log("New billing record created successfully:", data);
+        })
+        .catch(error => {
+            console.error("Error while creating new billing record:", error);
+        });
+        const {payment} = await Payment.create(paymentData);
+        res.json({ billing, payment });
     } catch (error) {
         console.log(error)
         res.status(500).send('Error adding user and address to database');
