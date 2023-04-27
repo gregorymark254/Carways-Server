@@ -1,6 +1,5 @@
 const bill = require("../Controller/billingController");
-const Billing = require("../Models/billing")
-const Payment = require("../Models/billing")
+
 
 var router = require("express").Router();
 
