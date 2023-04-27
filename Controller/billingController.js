@@ -1,23 +1,22 @@
 const db = require("../Models/index");
 const Billing = db.billingInfo;
-// const Payment = db.paymentInfo;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Billing
 exports.create = (req, res) => {
-  // Create a Billing
-  const { billingData,paymentData } = req.body
 
   // Validate request
-  if (!billingData || !paymentData) {
+  if (!req.body.firstName) {
     res.status(400).send({
       message: "Billing and Payment data cannot be empty!"
     });
     return;
   }
-
+  
+  const billing = {firstName,lastName ,email,phone ,address ,address2 ,city ,state ,zip,cardName,cardNumber,expiryDate ,cvv,additionalNote}
+  
   // Save payment in the database
-  Billing.create({billingData,paymentData})
+  Billing.create(billing)
   .then(data => {
     res.send(data);
   })
@@ -26,15 +25,6 @@ exports.create = (req, res) => {
       message : err.message || "Some error occurred while creating the Billing."
     });
   });
-  // Payment.create(paymentData)
-  // .then(data => {
-  //   res.send(data);
-  // })
-  // .catch(err => {
-  //   res.status(500).send({
-  //     message : err.message || "Some error occurred while creating the Billing."
-  //   });
-  // });
 };
 
 // Retrieve all Billing from the database.

@@ -27,9 +27,6 @@ module.exports = (sequelize, Sequelize) => {
     zip: {
       type: Sequelize.STRING
     }
-  });
-
-  const Payment = sequelize.define("payments", {
     cardName: {
       type: Sequelize.STRING
     },
@@ -47,9 +44,7 @@ module.exports = (sequelize, Sequelize) => {
     }
   });
 
-  Billing.hasMany(Payment);
-  Payment.belongsTo(Billing);
 
-  return {Billing,Payment};
+  return Billing
 };
       
