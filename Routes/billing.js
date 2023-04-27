@@ -22,11 +22,6 @@ router.post("/add", async (req,res) => {
     billingData.billingId = billing.id
     const payment = await Payment.create(paymentData);
     res.json({ billing, payment });
-   .catch(err => {
-     res.status(500).send({
-       message : err.message || "Some error occurred while creating the Billing."
-     });
-   });
    } catch (error) {
     console.log(error)
     res.status(500).send('Error adding user and address to database');
