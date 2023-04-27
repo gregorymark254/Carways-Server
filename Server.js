@@ -26,7 +26,7 @@ app.use(logger)
 
 
 //routes
-app.get("/", (req, res) => {
+app.get("/server", (req, res) => {
     res.json({Message:"Car Rental System Backend Server."});
 });
 app.use("/api/v1", auth) //auth route
