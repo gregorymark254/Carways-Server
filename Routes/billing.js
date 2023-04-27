@@ -17,21 +17,19 @@ router.post("/add", async (req,res) => {
         return;
     }
 
-   try {
-     // Save payment in the database
-    const billing = await Billing.create(billingData)
-    billingData.billingId = billing.id
-    const payment = await Payment.create(paymentData);
-    res.json({ billing, address });
-   .catch(err => {
-     res.status(500).send({
-       message : err.message || "Some error occurred while creating the Billing."
-     });
-   });
-   } catch (error) {
-    console.log(error)
-    res.status(500).send('Error adding user and address to database');
-   }
+    
+    try {
+        // Save payment in the database
+        const billing = await Billing.create(billingData)
+        billingData.billingId = billing.id
+        const payment = await Payment.create(paymentData);
+        res.json({ billing, address });
+    } catch (error) {
+        console.log(error)
+        res.status(500).send('Error adding user and address to database');
+    }
+
+
 });
 
 // Retrieve all bill
