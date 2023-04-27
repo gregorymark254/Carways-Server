@@ -20,7 +20,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     city: {
       type: Sequelize.STRING
-    },SSSSSSSS
+    },
     state: {
       type: Sequelize.STRING
     },
