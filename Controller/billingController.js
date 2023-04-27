@@ -13,7 +13,22 @@ exports.create = (req, res) => {
     return;
   }
   
-  const billing = {firstName,lastName ,email,phone ,address ,address2 ,city ,state ,zip,cardName,cardNumber,expiryDate ,cvv,additionalNote}
+  const billing = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    phone : req.body.phone,
+    address : req.body.address,
+    address2 : req.body.address2,
+    city : req.body.city,
+    state : req.body.state,
+    zip: req.body.zip,
+    cardName: req.body.cardName,
+    cardNumber: req.body.cardNumber,
+    expiryDate: req.body.expiryDate,
+    cvv: req.body.cvv,
+    additionalNote: req.body.additionalNote
+  }
   
   // Save payment in the database
   Billing.create(billing)
