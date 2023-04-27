@@ -20,7 +20,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     city: {
       type: Sequelize.STRING
-    },
+    },SSSSSSSS
     state: {
       type: Sequelize.STRING
     },
@@ -46,6 +46,9 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     }
   });
+
+  Billing.hasMany(Payment);
+  Payment.belongsTo(Billing);
 
   return {Billing,Payment};
 };
