@@ -1,5 +1,7 @@
 const bill = require("../Controller/billingController");
-
+const db = require("../Models/index");
+const Billing = db.billingInfo 
+const Payment = db.paymentInfo;
 
 var router = require("express").Router();
 
@@ -20,7 +22,12 @@ router.post("/add", async (req,res) => {
     const billing = await Billing.create(billingData)
     billingData.billingId = billing.id
     const payment = await Payment.create(paymentData);
-    res.json({ billing, payment });
+    res.json({ billing, address });
+   .catch(err => {
+     res.status(500).send({
+       message : err.message || "Some error occurred while creating the Billing."
+     });
+   });
    } catch (error) {
     console.log(error)
     res.status(500).send('Error adding user and address to database');
