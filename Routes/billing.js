@@ -17,7 +17,7 @@ router.post("/add", (req,res) => {
     }
 
     // Save payment in the database
-    Billing.create(billingData)
+    billingData.create(billingData)
     .then(data => {
         res.send(data);
     })
