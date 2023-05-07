@@ -1,0 +1,2 @@
+20230507	13:23:30	27323dc8-aed9-472b-a7ac-c71a7177b588	Error: Not allowed by CORS : https://www.google.com
+20230507	13:23:30	eb2778b1-1203-4a8f-8b5d-895a803084da	Error: Not allowed by CORS : https://www.google.com
