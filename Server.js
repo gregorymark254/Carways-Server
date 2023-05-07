@@ -33,7 +33,7 @@ app.use("/api/v1", auth) //auth route
 app.use("/api/v2", billing) //billing route
 app.use("/api/v3", booking) //booking route
 app.use("/api/v4", email) //Email route
-app.use("/api/v5", cars) //cars route
+app.use("/api/v5", cars) //cars route from mongodb
 
 
 //Error handler
