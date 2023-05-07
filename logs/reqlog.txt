@@ -1,9 +1,3 @@
-20230425	16:51:57	814f91bb-8418-484c-9a91-48b3d101efa1	GET	http://localhost:3000	/api/v5/all
-20230425	16:53:01	4047b176-29ea-47e8-95ee-a59e93baf71a	POST	http://localhost:3000	/api/v3/add
-20230425	16:56:32	a5f5b86a-c0cd-4877-86be-f4648f96df1e	POST	http://localhost:3000	/api/v3/add
-20230425	17:11:23	a1590348-4c85-4f3e-a529-0d45bcae56e4	POST	http://localhost:3000	/api/v3/add
-20230507	12:35:23	192f6114-38da-4b8c-8a66-e00c0acdd613	GET	undefined	/api/v6/pay
-20230507	12:35:56	20a22b4a-8813-4769-b1df-7f1b4e534ff2	POST	undefined	/api/v6/pay
-20230507	12:36:13	9d53fec2-9641-4a8d-8395-7aa7d394727f	GET	undefined	/api/v6/pay
-20230507	12:50:40	8ce42b1e-6af7-4bf6-827c-7eb698195fc3	GET	undefined	/
-20230507	12:50:40	c51c6ffe-6d58-4500-a1a5-e194887252a7	GET	undefined	/favicon.ico
+20230507	13:13:39	c77e77ce-e4cc-4dfa-9010-ad9a4b9a6e93	GET	undefined	/
+20230507	13:13:47	6c18e7f3-ae77-4bb8-ad42-1b505ad974b5	GET	undefined	/
+20230507	13:14:20	124a73a3-9c29-4784-9798-b37ab2971584	GET	undefined	/

@@ -1,4 +1,0 @@
-20230406	16:55:19	c2d4a682-8625-4668-ae6a-f07854ad36f8	Error: Not allowed by CORS : http://localhost:3000
-20230406	16:57:09	360d793c-8851-45bf-9798-67196fc21e69	Error: Not allowed by CORS : http://localhost:3000
-20230406	16:57:33	5594c82b-aef5-4599-8797-7508e548657a	Error: Not allowed by CORS : http://localhost:3000
-20230406	16:57:42	74f20799-e962-438d-8902-42f3650b4ece	Error: Not allowed by CORS : http://localhost:3000
