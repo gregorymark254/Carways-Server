@@ -2,3 +2,6 @@
 20230425	16:53:01	4047b176-29ea-47e8-95ee-a59e93baf71a	POST	http://localhost:3000	/api/v3/add
 20230425	16:56:32	a5f5b86a-c0cd-4877-86be-f4648f96df1e	POST	http://localhost:3000	/api/v3/add
 20230425	17:11:23	a1590348-4c85-4f3e-a529-0d45bcae56e4	POST	http://localhost:3000	/api/v3/add
+20230507	12:35:23	192f6114-38da-4b8c-8a66-e00c0acdd613	GET	undefined	/api/v6/pay
+20230507	12:35:56	20a22b4a-8813-4769-b1df-7f1b4e534ff2	POST	undefined	/api/v6/pay
+20230507	12:36:13	9d53fec2-9641-4a8d-8395-7aa7d394727f	GET	undefined	/api/v6/pay
