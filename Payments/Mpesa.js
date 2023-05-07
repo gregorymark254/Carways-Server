@@ -59,7 +59,7 @@ router.post("/stk", generateToken , async (req,res) => {
             PartyA : `254${phone}`,    
             PartyB : shortCode,    
             PhoneNumber : `254${phone}`,    
-            CallBackURL : "https://carways.cleverapps.io/api/v1/callBack",    
+            CallBackURL : "https://8d1c-197-248-224-74.eu.ngrok.io/api/v1/callBack",    
             AccountReference : "myaccount",    
             TransactionDesc : "Test"
         },

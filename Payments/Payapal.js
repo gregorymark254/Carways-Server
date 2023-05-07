@@ -16,8 +16,8 @@ router.post('/pay', (req, res) => {
           "payment_method": "paypal"
       },
       "redirect_urls": {
-          "return_url": "https://carways.cleverapps.io/success",
-          "cancel_url": "https://carways.cleverapps.io/cancel"
+          "return_url": "http://localhost:8080/success",
+          "cancel_url": "http://localhost:8080/cancel"
       },
       "transactions": [{
           "item_list": {
