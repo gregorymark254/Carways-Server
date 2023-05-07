@@ -9,7 +9,6 @@ const billing = require("./Routes/billing")
 const booking = require("./Routes/booking")
 const email = require("./Routes/mail")
 const cars = require("./Routes/cars")
-// const payment = require("./Payments/Payapal")
 const {logger } = require("./Middleware/logEvents")
 const errorHandler = require("./Middleware/errorHandler")
 
@@ -27,15 +26,14 @@ app.use(logger)
 
 
 //routes
-app.get("/", (req, res) => {
+app.get("/server", (req, res) => {
     res.json({Message:"Car Rental System Backend Server."});
 });
 app.use("/api/v1", auth) //auth route
 app.use("/api/v2", billing) //billing route
 app.use("/api/v3", booking) //booking route
 app.use("/api/v4", email) //Email route
-app.use("/api/v5", cars) //cars route from mongodb
-// app.use("/api/v6", payment) //payment route
+app.use("/api/v5", cars) //cars route
 
 
 //Error handler
