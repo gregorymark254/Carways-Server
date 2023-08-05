@@ -50,8 +50,8 @@ router.post("/login", async (req, res) => {
       const accessToken = jwt.sign(
         {
           "UserInfo": {
-            "username": foundUser.email,
-            "isAdmin": foundUser.isAdmin
+            username: foundUser.email,
+            isAdmin: foundUser.isAdmin
           }
         },
         process.env.ACCESS_TOKEN_SECRET,
