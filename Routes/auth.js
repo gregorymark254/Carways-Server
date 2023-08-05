@@ -35,48 +35,51 @@ router.post("/register", async (req,res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    if (!email || !password)
-      return res.status(400).json({ message: "Username and password are required." });
+
+    if (!email || !password) {
+      return res.status(422).json({ message: "Username and password are required." });
+    }
 
     const foundUser = await User.findOne({ email: email }).exec();
-    if (!foundUser)
-      return res.status(401).json({ message: "Invalid email or password." });
-
-    // evaluate password
-    const match = await bcrypt.compare(password, foundUser.password);
-    if (match) {
-      const isAdmin = foundUser.isAdmin
-      // create JWTs
-      const accessToken = jwt.sign(
-        {
-          "email": foundUser.email,
-          "isAdmin": foundUser.isAdmin,
-        },
-        process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "1h" } // increase expiration time
-      );
-      const newRefreshToken = jwt.sign(
-        { email: foundUser.email },
-        process.env.REFRESH_TOKEN_SECRET,
-        { expiresIn: "24h" } // increase expiration time
-      );
-      // Saving refreshToken with current user
-      foundUser.refreshToken = newRefreshToken;
-      try {
-        await foundUser.save();
-      } catch (err) {
-        console.error(err);
-        return res.status(500).json({ message: "Server error." });
-      }
-
-      // Send authorization roles and access token to user
-      res.json({ email,isAdmin, accessToken });
-    } else {
-      return res.status(401).json({ message: "Invalid email or password." });
+    if (!foundUser) {
+      return res.status(401).json({ message: "Authentication failed." });
     }
+
+    // Evaluate password
+    const match = await bcrypt.compare(password, foundUser.password);
+    if (!match) {
+      return res.status(401).json({ message: "Authentication failed." });
+    }
+
+    // Create JWTs
+    const accessToken = jwt.sign(
+      {
+        email: foundUser.email,
+        isAdmin: foundUser.isAdmin,
+      },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: "1h" } // Increase expiration time
+    );
+    const newRefreshToken = jwt.sign(
+      { email: foundUser.email },
+      process.env.REFRESH_TOKEN_SECRET,
+      { expiresIn: "24h" } // Increase expiration time
+    );
+
+    // Saving refreshToken with current user
+    foundUser.refreshToken = newRefreshToken;
+    try {
+      await foundUser.save();
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Server error." });
+    }
+
+    // Send authorization roles and access token to user
+    res.json({ email: foundUser.email, isAdmin: foundUser.isAdmin, accessToken });
   } catch (error) {
     console.error(error);
-    res.sendStatus(500);
+    res.status(500).json({ message: "Server error." });
   }
 });
 
