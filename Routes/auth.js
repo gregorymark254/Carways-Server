@@ -49,8 +49,8 @@ router.post("/login", async (req, res) => {
       // create JWTs
       const accessToken = jwt.sign(
         {
-          email: foundUser.email,
-          isAdmin: foundUser.isAdmin,
+          "email": foundUser.email,
+          "isAdmin": foundUser.isAdmin,
         },
         process.env.ACCESS_TOKEN_SECRET,
         { expiresIn: "1h" } // increase expiration time
