@@ -18,7 +18,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.bookingInfo = require("./booking")(sequelize, Sequelize);
-db.billingInfo = require("./billing")(sequelize, Sequelize);
+// db.bookingInfo = require("./booking")(sequelize, Sequelize);
+// db.billingInfo = require("./billing")(sequelize, Sequelize);
 
 module.exports = db;
