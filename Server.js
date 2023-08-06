@@ -14,8 +14,8 @@ const errorHandler = require("./Middleware/errorHandler")
 
 //connection to Databases
 mongoconnect()
-// const db = require("./Models/index");
-// db.sequelize.sync();
+const db = require("./Models/index");
+db.sequelize.sync();
 
 
 //middleware
